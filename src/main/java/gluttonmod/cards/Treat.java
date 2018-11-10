@@ -29,6 +29,7 @@ public class Treat extends AbstractGluttonCard
         this.baseBlock = BLOCK;
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
