@@ -131,6 +131,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Voracity());
         //Skills
         BaseMod.addCard(new Brace());
+        BaseMod.addCard(new Delusion());
         BaseMod.addCard(new Dispepsia());
         BaseMod.addCard(new GoldenArmor());
         BaseMod.addCard(new Migraine());
@@ -168,7 +169,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     public void receiveEditKeywords() {
         BaseMod.addKeyword("Hunger Pang", new String[]{"hunger pang", "hunger_pang", "hunger pangs", "hunger_pangs"},
                 "Hunger Pangs are unplayable status cards that damage you and draw you new cards.");
-        BaseMod.addKeyword(new String[]{"echo"},
+        BaseMod.addKeyword(new String[]{"echo", "echoes"},
                 "Echoes are copies of cards with ethereal and exhaust.");
     }
 
