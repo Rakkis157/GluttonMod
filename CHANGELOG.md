@@ -1,3 +1,7 @@
+# Version 0.2.1
+
+Quality of Life hotfix for Delusion: Previous behavior: Card selection screen for Delusion warns about selecting etheral cards and, if they are selected, prevents an Echo from being made. New behavior: Players no longer have the option of selecting Etheral cards with Delusion.
+
 # Version 0.2
 
 Added 5 new cards: Belly Slam, Bloody Kuckle, Brace, Delusion, and Tumor
