@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class Demolish extends AbstractGluttonCard {
     public static final String ID = "Demolish";
     public static final String NAME = "Demolish";
-    public static final String DESCRIPTION = "Deal !D! damage to ALL enemies. NL If this card is Exhausted, deal !D! damage to ALL enemies twice.";
+    public static final String DESCRIPTION = "Deal !D! damage to ALL enemies. NL If this card is Exhausted, deal !D! damage to ALL enemies three times.";
     public static final String IMG_PATH = "cards/demolish.png";
 
     private static final CardType TYPE = CardType.ATTACK;
@@ -18,7 +18,7 @@ public class Demolish extends AbstractGluttonCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     private static final int COST = 1;
-    private static final int POWER = 3;
+    private static final int POWER = 4;
     private static final int UPGRADE_BONUS = 2;
 
     public Demolish()
@@ -45,6 +45,9 @@ public class Demolish extends AbstractGluttonCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn,
                         AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAllEnemiesAction(AbstractDungeon.player, this.multiDamage, this.damageTypeForTurn,
+                        AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
     public AbstractCard makeCopy()
