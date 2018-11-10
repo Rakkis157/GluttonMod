@@ -5,5 +5,5 @@ The Glutton Mod will feature 75 new cards and 11 new relics. The Glutton resolve
 
 The Glutton begins with the Relic **Eternal Hunger** which lets him draw an additional card each turn at the cost of one HP (though this Relic will never deal the last point of damage to you).
 
-#Credits
+# Credits
 I would like to thank the developers of Slay the Spire for making such an amazing game, as well as the mod community for their support and providing such helpful modding resources.
