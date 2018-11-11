@@ -26,6 +26,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.nio.charset.StandardCharsets;
 
+import static basemod.BaseMod.addRelicToCustomPool;
+
 @SpireInitializer
 public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscriber,
         EditCardsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, PostDrawSubscriber,
@@ -79,15 +81,15 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     @Override
     public void receiveEditRelics() {
         // Starter
-        RelicLibrary.add(new EternalHunger());
+        addRelicToCustomPool(new EternalHunger(), AbstractCardEnum.GLUTTON);
 
         //Boss
-        RelicLibrary.add(new DoggyBag());
-        RelicLibrary.add(new Gemstone());
-        RelicLibrary.add(new InfiniteFamine()); //Upgrade to Starter
+        addRelicToCustomPool(new DoggyBag(), AbstractCardEnum.GLUTTON);
+        addRelicToCustomPool(new Gemstone(), AbstractCardEnum.GLUTTON);
+        addRelicToCustomPool(new InfiniteFamine(), AbstractCardEnum.GLUTTON); //Upgrade to Starter
 
         //Shop
-        RelicLibrary.add(new Lollipop());
+        addRelicToCustomPool(new Lollipop(), AbstractCardEnum.GLUTTON);
     }
 
     @Override
