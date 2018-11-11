@@ -12,7 +12,7 @@ public class DecrepitStrike extends AbstractGluttonCard
 {
     public static final String ID = "DecrepitStrike";
     public static final String NAME = "Decrepit Strike";
-    public static final String DESCRIPTION = "Deal !D! damage. If you are Weak, Deal !D! Damage two additional times.";
+    public static final String DESCRIPTION = "Deal !D! damage. If you are Weak, Deal !D! damage two additional times.";
     public static final String IMG_PATH = "cards/decrepitstrike.png";
 
     private static final CardType TYPE = CardType.ATTACK;
