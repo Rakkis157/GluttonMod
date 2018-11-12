@@ -37,15 +37,19 @@ public class Avarice extends AbstractGluttonCard
     }
 
     public void triggerWhenDrawn() {
-        int current = this.cost;
-        int desired = COST - (AbstractDungeon.player.gold / PRICE);
-        this.updateCost(desired - current);
+        if(!this.isCostModified && !this.isCostModifiedForTurn) {
+            int current = this.cost;
+            int desired = COST - (AbstractDungeon.player.gold / PRICE);
+            this.updateCost(desired - current);
+        }
     }
 
     public void onChangeGold(int amount) {
-        int current = this.cost;
-        int desired = COST - (AbstractDungeon.player.gold / PRICE);
-        this.updateCost(desired - current);
+        if(!this.isCostModified && !this.isCostModifiedForTurn) {
+            int current = this.cost;
+            int desired = COST - (AbstractDungeon.player.gold / PRICE);
+            this.updateCost(desired - current);
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
