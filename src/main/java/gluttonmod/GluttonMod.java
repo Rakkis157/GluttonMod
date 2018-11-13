@@ -136,6 +136,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Voracity());
         //Skills
         BaseMod.addCard(new Brace());
+        BaseMod.addCard(new Chrysosphagy());
         BaseMod.addCard(new Delusion());
         BaseMod.addCard(new Dispepsia());
         BaseMod.addCard(new GoldenArmor());

@@ -6,28 +6,26 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
-public class ObsessiveGreed extends AbstractGluttonCard
+public class Chrysosphagy extends AbstractGluttonCard
 {
-    private static final int PRICE = 30;
+    private static final int PRICE = 20;
 
-    public static final String ID = "ObsessiveGreed";
-    public static final String NAME = "Obsessive Greed";
-    public static final String DESCRIPTION = "Pay " + PRICE + " Gold. NL Gain !M! Intangible.";
+    public static final String ID = "Chrysosphagy";
+    public static final String NAME = "Chrysosphagy";
+    public static final String DESCRIPTION = "Pay " + PRICE + " Gold. NL Heal !M! HP.";
     public static final String CANT_PLAY = "I can't afford this card.";
-    public static final String IMG_PATH = "cards/obsessivegreed.png";
+    public static final String IMG_PATH = "cards/chrysosphagy.png";
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 1;
-    private static final int MAGIC = 1;
-    private static final int UPGRADE_BONUS = 1;
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
+    private static final int MAGIC = 20;
 
-
-    public ObsessiveGreed()
+    public Chrysosphagy()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, RARITY, TARGET);
 
@@ -37,8 +35,7 @@ public class ObsessiveGreed extends AbstractGluttonCard
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new SpendGoldCombatAction(PRICE));
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.magicNumber));
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m)
@@ -56,7 +53,7 @@ public class ObsessiveGreed extends AbstractGluttonCard
 
     public AbstractCard makeCopy()
     {
-        return new ObsessiveGreed();
+        return new Chrysosphagy();
     }
 
     public void upgrade()
@@ -64,7 +61,7 @@ public class ObsessiveGreed extends AbstractGluttonCard
         if (!this.upgraded)
         {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_BONUS);
+            upgradeBaseCost(UPGRADE_COST);
         }
     }
 }
