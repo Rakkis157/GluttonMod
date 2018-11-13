@@ -26,7 +26,6 @@ public class LoseGoldPatch {
 
     public static void Postfix(AbstractPlayer abstractPlayer, int amount) {
         int realAmount = goldStack.pop();
-        GluttonMod.logger.debug(realAmount);
         if(realAmount > 0) {
             applyToCardsInGroup(abstractPlayer.drawPile, realAmount);
             applyToCardsInGroup(abstractPlayer.discardPile, realAmount);

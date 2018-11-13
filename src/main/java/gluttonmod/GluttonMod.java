@@ -26,6 +26,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.nio.charset.StandardCharsets;
 
+import static basemod.BaseMod.addRelicToCustomPool;
+
 @SpireInitializer
 public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscriber,
         EditCardsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, PostDrawSubscriber,
@@ -79,15 +81,18 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     @Override
     public void receiveEditRelics() {
         // Starter
-        RelicLibrary.add(new EternalHunger());
+        addRelicToCustomPool(new EternalHunger(), AbstractCardEnum.GLUTTON);
+
+        //Common
+        addRelicToCustomPool(new AmuletOfPain(), AbstractCardEnum.GLUTTON);
 
         //Boss
-        RelicLibrary.add(new DoggyBag());
-        RelicLibrary.add(new Gemstone());
-        RelicLibrary.add(new InfiniteFamine()); //Upgrade to Starter
+        addRelicToCustomPool(new DoggyBag(), AbstractCardEnum.GLUTTON);
+        addRelicToCustomPool(new Gemstone(), AbstractCardEnum.GLUTTON);
+        addRelicToCustomPool(new InfiniteFamine(), AbstractCardEnum.GLUTTON); //Upgrade to Starter
 
         //Shop
-        RelicLibrary.add(new Lollipop());
+        addRelicToCustomPool(new Lollipop(), AbstractCardEnum.GLUTTON);
     }
 
     @Override
@@ -103,12 +108,15 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         //Common
         //Attacks
         BaseMod.addCard(new Bite_Glutton());
+        BaseMod.addCard(new BloodyKnuckle());
         BaseMod.addCard(new Borborygmi());
+        BaseMod.addCard(new Chomp());
         BaseMod.addCard(new Demolish());
         BaseMod.addCard(new Devour());
         BaseMod.addCard(new Feed_Glutton());
         BaseMod.addCard(new GnawingHunger());
         BaseMod.addCard(new KneeJerk());
+        BaseMod.addCard(new Profligacy());
         BaseMod.addCard(new Slam());
         //Skills
         BaseMod.addCard(new GuardStance());
@@ -116,10 +124,12 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Rest());
         BaseMod.addCard(new Salivate());
         BaseMod.addCard(new Scab());
+        BaseMod.addCard(new SelfFlagellate());
         BaseMod.addCard(new Treat());
 
         //Uncommon
         //Attacks
+        BaseMod.addCard(new BellySlam());
         BaseMod.addCard(new DecrepitStrike());
         BaseMod.addCard(new FeebleKick());
         BaseMod.addCard(new LashOut());
@@ -129,12 +139,17 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Throb());
         BaseMod.addCard(new Voracity());
         //Skills
+        BaseMod.addCard(new Brace());
+        BaseMod.addCard(new Chrysosphagy());
+        BaseMod.addCard(new Delusion());
         BaseMod.addCard(new Dispepsia());
         BaseMod.addCard(new GoldenArmor());
         BaseMod.addCard(new Migraine());
         BaseMod.addCard(new ObsessiveGreed());
         BaseMod.addCard(new ShareWeakness());
         BaseMod.addCard(new Toxicity());
+        BaseMod.addCard(new Tumor());
+        BaseMod.addCard(new Yearn());
         //Powers
         BaseMod.addCard(new FeverVisions());
         BaseMod.addCard(new Misery());
@@ -165,7 +180,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     public void receiveEditKeywords() {
         BaseMod.addKeyword("Hunger Pang", new String[]{"hunger pang", "hunger_pang", "hunger pangs", "hunger_pangs"},
                 "Hunger Pangs are unplayable status cards that damage you and draw you new cards.");
-        BaseMod.addKeyword(new String[]{"echo"},
+        BaseMod.addKeyword(new String[]{"echo", "echoes"},
                 "Echoes are copies of cards with ethereal and exhaust.");
     }
 
