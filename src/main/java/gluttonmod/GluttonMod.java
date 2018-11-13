@@ -120,6 +120,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Rest());
         BaseMod.addCard(new Salivate());
         BaseMod.addCard(new Scab());
+        BaseMod.addCard(new SelfFlagellate());
         BaseMod.addCard(new Treat());
 
         //Uncommon

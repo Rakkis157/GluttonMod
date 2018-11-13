@@ -26,7 +26,6 @@ public class Demolish extends AbstractGluttonCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, RARITY, TARGET);
 
         this.baseDamage = POWER;
-        this.magicNumber = this.baseMagicNumber;
         this.isMultiDamage = true;
     }
 
