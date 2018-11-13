@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class AmuletOfPain extends AbstractGluttonRelic {
     public static final String ID = "AmuletOfPain";
@@ -27,7 +27,7 @@ public class AmuletOfPain extends AbstractGluttonRelic {
 
     @Override
     public void onLoseHp(int damageAmount){
-        if(damageAmount >0 && AbstractDungeon.getCurrRoom() instanceof MonsterRoom) {
+        if(damageAmount >0 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             this.counter += 1;
             if (this.counter == COUNT)
             {
