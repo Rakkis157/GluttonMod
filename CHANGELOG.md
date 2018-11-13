@@ -1,6 +1,6 @@
 # Version 0.3
 
-Added 5 new cards: Chomp, Chrysosphagy, Progligacy, Self Flagellate, and Yearn
+Added 5 new cards: Chomp, Chrysosphagy, Profligacy, Self Flagellate, and Yearn
 
 Added 1 new relic: Amulet of Pain
 
