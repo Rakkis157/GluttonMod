@@ -12,8 +12,7 @@ public class Migraine extends AbstractGluttonCard
 {
     public static final String ID = "Migraine";
     public static final String NAME = "Migraine";
-    public static final String DESCRIPTION = "Unplayable. NL When drawn, lose 1 HP and draw 1 card.";
-    public static final String UPGRADE_DESCRIPTION = "Unplayable. NL When drawn, lose 1 HP and draw 2 cards.";
+    public static final String DESCRIPTION = "Unplayable. NL When drawn, lose 1 HP and draw !M! cards.";
     public static final String CANT_PLAY = "I can't play this card.";
     public static final String IMG_PATH = "cards/migraine.png";
 
@@ -23,12 +22,14 @@ public class Migraine extends AbstractGluttonCard
 
     private static final int COST = -2;
     private static final int PAIN = 1;
-    private static final int UPGRADE_CARD_DRAW = 2;
-    private int cardDrawAmount = 1;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_MAGIC_BONUS = 1;
 
     public Migraine()
     {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        this.baseMagicNumber = MAGIC;
+        this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}
@@ -46,7 +47,7 @@ public class Migraine extends AbstractGluttonCard
                         PAIN, AbstractGameAction.AttackEffect.FIRE));
 
         if(!AbstractDungeon.player.hasPower("No Draw")){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.cardDrawAmount));
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
         }
     }
 
@@ -60,9 +61,7 @@ public class Migraine extends AbstractGluttonCard
         if (!this.upgraded)
         {
             upgradeName();
-            this.cardDrawAmount = UPGRADE_CARD_DRAW;
-            this.rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
+            upgradeMagicNumber(UPGRADE_MAGIC_BONUS);
         }
     }
 }
