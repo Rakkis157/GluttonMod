@@ -58,7 +58,8 @@ public class GnawingHunger extends AbstractGluttonCard
         if (!this.upgraded)
         {
             upgradeName();
-            this.exhaust = false;
+            if (!this.isEthereal)
+                this.exhaust = false;
             this.rawDescription = UPGRADED_DESCRIPTION;
             initializeDescription();
         }
