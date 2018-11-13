@@ -83,6 +83,9 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         // Starter
         addRelicToCustomPool(new EternalHunger(), AbstractCardEnum.GLUTTON);
 
+        //Common
+        addRelicToCustomPool(new AmuletOfPain(), AbstractCardEnum.GLUTTON);
+
         //Boss
         addRelicToCustomPool(new DoggyBag(), AbstractCardEnum.GLUTTON);
         addRelicToCustomPool(new Gemstone(), AbstractCardEnum.GLUTTON);
