@@ -23,7 +23,7 @@ public class SelfFlagellate extends AbstractGluttonCard
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC_BONUS = 1;
 
     public SelfFlagellate()
