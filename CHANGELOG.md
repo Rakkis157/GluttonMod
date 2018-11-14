@@ -1,3 +1,7 @@
+# Version 0.3.1
+
+Nerfed Treat's Max HP gain
+
 # Version 0.3
 
 Added 5 new cards: Chomp, Chrysosphagy, Profligacy, Self Flagellate, and Yearn
