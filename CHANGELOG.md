@@ -1,3 +1,11 @@
+# Version 0.3.2
+
+Nerfed Toxic Residue
+
+Buffed Self Flagellate
+
+Actually fixed Avarice for real
+
 # Version 0.3.1
 
 Nerfed Treat's Max HP gain
