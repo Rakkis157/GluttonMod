@@ -19,7 +19,7 @@ public class Yearn extends AbstractGluttonCard
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
 
     public Yearn()
