@@ -168,6 +168,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Retaliation());
         //Skills
         BaseMod.addCard(new Fast());
+        BaseMod.addCard(new Hemophilia());
         BaseMod.addCard(new Inversion());
         //Powers
         BaseMod.addCard(new Megrim());
@@ -187,6 +188,8 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
                 "Hunger Pangs are unplayable status cards that damage you and draw you new cards.");
         BaseMod.addKeyword(new String[]{"echo", "echoes"},
                 "Echoes are copies of cards with ethereal and exhaust.");
+        BaseMod.addKeyword(new String[]{"bleed"},
+                "Bleeding creatures lose HP at the start of their turn.");
     }
 
     @Override

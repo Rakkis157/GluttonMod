@@ -26,6 +26,8 @@ public class ClotPower extends AbstractGluttonPower {
         this.type = PowerType.BUFF;
         this.amount = amount;
         this.updateDescription();
+
+        this.isTurnBased = true;
     }
 
     @Override
