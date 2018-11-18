@@ -1,3 +1,17 @@
+# Version 0.4.0
+
+Added 5 new cards: Distilled Agony, Hemophilia, Tantrum, Thrombosis, Torment
+
+Added new Rare Relic: Syringe
+
+Buffed Yearn (now costs 0).
+
+Tweaked Debuff matters cards. Rather than caring about Weak/Vulnerable/Frail, they now trigger off of any debuff.
+
+Yearn and Bloody Knuckles are now both the proper rarity (Yearn should have been common, Bloody Knuckes should have been uncommon).
+
+Fixed Lash Out (Will now actually show up in runs, and will work properly at that.)
+
 # Version 0.3.2
 
 Nerfed Toxic Residue
