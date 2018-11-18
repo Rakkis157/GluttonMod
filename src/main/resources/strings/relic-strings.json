@@ -33,5 +33,11 @@
     "NAME": "Lollipop",
     "FLAVOR": "A satisfying solution to an oral fixation.",
     "DESCRIPTIONS": ["Reduce the HP loss of Eternal Hunger, Infinite Famine, and Hunger Pangs by #b1."]
+  },
+
+  "Syringe":{
+    "NAME": "Syringe",
+    "FLAVOR": "What's in it? Just some water and food coloring.",
+    "DESCRIPTIONS": ["Whenever you heal HP, deal #b6 damage to a random enemy."]
   }
 }
