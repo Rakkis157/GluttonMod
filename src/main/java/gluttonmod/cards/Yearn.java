@@ -36,9 +36,7 @@ public class Yearn extends AbstractGluttonCard
     {
 
         AbstractDungeon.actionManager.addToBottom(new YearnAction(this.magicNumber));
-        if(!AbstractDungeon.player.hasPower("No Draw")){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
     }
 
     public AbstractCard makeCopy()

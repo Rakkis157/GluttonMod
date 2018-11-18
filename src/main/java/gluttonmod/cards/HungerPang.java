@@ -61,9 +61,7 @@ public class HungerPang extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(
                 new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player,
                         damage, AbstractGameAction.AttackEffect.FIRE));
-        if(!AbstractDungeon.player.hasPower("No Draw")){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.cardDrawAmount));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.cardDrawAmount));
     }
 
     public AbstractCard makeCopy()

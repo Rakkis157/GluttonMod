@@ -46,9 +46,7 @@ public class Migraine extends AbstractGluttonCard
                 new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player,
                         PAIN, AbstractGameAction.AttackEffect.FIRE));
 
-        if(!AbstractDungeon.player.hasPower("No Draw")){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
     }
 
     public AbstractCard makeCopy()

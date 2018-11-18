@@ -43,9 +43,7 @@ public class Tumor extends AbstractGluttonCard
     }
 
     public void triggerOnExhaust() {
-        if(!AbstractDungeon.player.hasPower("No Draw")){
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
     }
 
     public AbstractCard makeCopy()
