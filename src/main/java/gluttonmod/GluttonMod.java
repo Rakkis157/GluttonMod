@@ -109,7 +109,6 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         //Common
         //Attacks
         BaseMod.addCard(new Bite_Glutton());
-        BaseMod.addCard(new BloodyKnuckle());
         BaseMod.addCard(new Borborygmi());
         BaseMod.addCard(new Chomp());
         BaseMod.addCard(new Demolish());
@@ -117,31 +116,34 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Feed_Glutton());
         BaseMod.addCard(new GnawingHunger());
         BaseMod.addCard(new KneeJerk());
-        BaseMod.addCard(new Profligacy());
         BaseMod.addCard(new Slam());
         BaseMod.addCard(new Tantrum());
         //Skills
+        BaseMod.addCard(new Brace());
         BaseMod.addCard(new GuardStance());
         BaseMod.addCard(new PainMeditation());
         BaseMod.addCard(new Rest());
         BaseMod.addCard(new Salivate());
         BaseMod.addCard(new Scab());
         BaseMod.addCard(new SelfFlagellate());
+        BaseMod.addCard(new Thrombosis());
         BaseMod.addCard(new Treat());
+        BaseMod.addCard(new Yearn());
 
         //Uncommon
         //Attacks
         BaseMod.addCard(new BellySlam());
+        BaseMod.addCard(new BloodyKnuckle());
         BaseMod.addCard(new DecrepitStrike());
         BaseMod.addCard(new FeebleKick());
         BaseMod.addCard(new LashOut());
         BaseMod.addCard(new Mug());
         BaseMod.addCard(new Overreach());
+        BaseMod.addCard(new Profligacy());
         BaseMod.addCard(new Strain());
         BaseMod.addCard(new Throb());
         BaseMod.addCard(new Voracity());
         //Skills
-        BaseMod.addCard(new Brace());
         BaseMod.addCard(new Chrysosphagy());
         BaseMod.addCard(new Delusion());
         BaseMod.addCard(new Dispepsia());
@@ -151,7 +153,6 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new ShareWeakness());
         BaseMod.addCard(new Toxicity());
         BaseMod.addCard(new Tumor());
-        BaseMod.addCard(new Yearn());
         //Powers
         BaseMod.addCard(new FeverVisions());
         BaseMod.addCard(new Misery());
