@@ -20,7 +20,7 @@ public class StarvationMode extends AbstractGluttonCard
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 2;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     private static final int UPGRADE_BONUS = 1;
 
     public StarvationMode()
