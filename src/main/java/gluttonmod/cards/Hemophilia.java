@@ -12,7 +12,7 @@ public class Hemophilia extends AbstractGluttonCard
     private static int PAIN = 1;
     public static final String ID = "Hemophilia";
     public static final String NAME = "Hemophilia";
-    public static final String DESCRIPTION = "Gain " + PAIN + " Bleed, apply !M! Bleed to ALL enemies.";
+    public static final String DESCRIPTION = "Gain " + PAIN + " Bleed. Apply !M! Bleed to ALL enemies.";
     public static final String IMG_PATH = "cards/hemophilia.png";
 
     private static final CardType TYPE = CardType.SKILL;

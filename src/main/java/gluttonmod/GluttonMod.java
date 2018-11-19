@@ -174,6 +174,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Hemophilia());
         BaseMod.addCard(new Inversion());
         //Powers
+        BaseMod.addCard(new Enfeeblement());
         BaseMod.addCard(new Megrim());
         BaseMod.addCard(new Nostalgia());
     }
