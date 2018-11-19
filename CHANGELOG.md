@@ -1,3 +1,13 @@
+# Version 0.5.0
+
+Added 5 new cards: Enfeeblement, Malignancy, Reminisce, Starvation Mode, and Treasure
+
+Added new Uncommon Relic: Half-Eaten Sandwich
+
+Buffer Treat Slightly
+
+Added STSLib as a dependency
+
 # Version 0.4.0
 
 Added 5 new cards: Distilled Agony, Hemophilia, Tantrum, Thrombosis, Torment
