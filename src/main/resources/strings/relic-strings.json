@@ -23,6 +23,12 @@
     "DESCRIPTIONS": ["At the start of each combat, if you have #b300 or more gold, gain #b2 Strength and #b2 Dexterity."]
   },
 
+  "HalfEatenSandwich":{
+    "NAME": "Half-Eaten Sandwich",
+    "FLAVOR": "Somebody didn't have time to finish their lunch.",
+    "DESCRIPTIONS": ["At the end of combat, heal 2 HP and raise your Max HP by 1."]
+  },
+
   "InfiniteFamine":{
     "NAME": "Infinite Famine",
     "FLAVOR": "must... feed...",
