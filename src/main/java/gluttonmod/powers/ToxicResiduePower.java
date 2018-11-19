@@ -12,8 +12,8 @@ import gluttonmod.GluttonMod;
 public class ToxicResiduePower extends AbstractGluttonPower {
     public static final String POWER_ID = "ToxicResidue";
     public static final String NAME = "Toxic Residue";
-    public static final String[] DESCRIPTIONS = new String[]{ "Whenever a card is Exhausted, apply",
-            "Poison to a random enemy."};
+    public static final String[] DESCRIPTIONS = new String[]{ "Whenever a card is #yExhausted, apply #b",
+            " #yPoison to a random enemy."};
     public static final String IMG = "powers/toxicresidue.png";
 
     public ToxicResiduePower(AbstractCreature owner, int amount) {
@@ -29,7 +29,7 @@ public class ToxicResiduePower extends AbstractGluttonPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + " " + amount + " " + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] +  amount +  DESCRIPTIONS[1];
     }
 
     @Override

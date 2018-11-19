@@ -177,6 +177,7 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Enfeeblement());
         BaseMod.addCard(new Megrim());
         BaseMod.addCard(new Nostalgia());
+        BaseMod.addCard(new StarvationMode());
     }
 
     @Override
@@ -194,6 +195,8 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
                 "Echoes are copies of cards with ethereal and exhaust.");
         BaseMod.addKeyword(new String[]{"bleed"},
                 "Bleeding creatures lose HP at the start of their turn.");
+        BaseMod.addKeyword(new String[]{"starving"},
+                "At the start of each turn, add Hunger Pangs to your discard pile.");
     }
 
     @Override
