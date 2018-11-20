@@ -9,7 +9,7 @@ import gluttonmod.GluttonMod;
 public class FeverVisionsPower extends AbstractGluttonPower {
     public static final String POWER_ID = "FeverVisions";
     public static final String NAME = "Fever Visions";
-    public static final String[] DESCRIPTIONS = {"At the start of your turn, if you are Frail, Vulnerable, or Weak, draw",
+    public static final String[] DESCRIPTIONS = {"At the start of your turn, if you have a debuff, draw #b",
             "card.", "cards."};
     public static final String IMG = "powers/fevervisions.png";
 
@@ -27,18 +27,16 @@ public class FeverVisionsPower extends AbstractGluttonPower {
     @Override
     public void updateDescription() {
         if(amount == 1) {
-            description = DESCRIPTIONS[0] + " " + amount + " " + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + amount + " " + DESCRIPTIONS[1];
         }
         else{
-            description = DESCRIPTIONS[0] + " " + amount + " " + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + " " + DESCRIPTIONS[2];
         }
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
-        if(this.owner.hasPower("Frail")
-                || this.owner.hasPower("Vulnerable")
-                || this.owner.hasPower("Weakened")){
+        if(GluttonMod.hasDebuff(this.owner)){
             flash();
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.owner, this.amount));
         }

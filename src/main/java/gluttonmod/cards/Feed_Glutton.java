@@ -32,6 +32,7 @@ public class Feed_Glutton extends AbstractGluttonCard
         this.baseDamage = POWER;
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

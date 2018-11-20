@@ -9,6 +9,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -25,6 +26,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.nio.charset.StandardCharsets;
+
+import static basemod.BaseMod.addRelicToCustomPool;
 
 @SpireInitializer
 public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscriber,
@@ -79,15 +82,24 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     @Override
     public void receiveEditRelics() {
         // Starter
-        RelicLibrary.add(new EternalHunger());
+        addRelicToCustomPool(new EternalHunger(), AbstractCardEnum.GLUTTON);
+
+        //Common
+        addRelicToCustomPool(new AmuletOfPain(), AbstractCardEnum.GLUTTON);
+
+        //Uncommon
+        addRelicToCustomPool(new HalfEatenSandwich(), AbstractCardEnum.GLUTTON);
+
+        //Rare
+        addRelicToCustomPool(new Syringe(), AbstractCardEnum.GLUTTON);
 
         //Boss
-        RelicLibrary.add(new DoggyBag());
-        RelicLibrary.add(new Gemstone());
-        RelicLibrary.add(new InfiniteFamine()); //Upgrade to Starter
+        addRelicToCustomPool(new DoggyBag(), AbstractCardEnum.GLUTTON);
+        addRelicToCustomPool(new Gemstone(), AbstractCardEnum.GLUTTON);
+        addRelicToCustomPool(new InfiniteFamine(), AbstractCardEnum.GLUTTON); //Upgrade to Starter
 
         //Shop
-        RelicLibrary.add(new Lollipop());
+        addRelicToCustomPool(new Lollipop(), AbstractCardEnum.GLUTTON);
     }
 
     @Override
@@ -104,37 +116,51 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         //Attacks
         BaseMod.addCard(new Bite_Glutton());
         BaseMod.addCard(new Borborygmi());
+        BaseMod.addCard(new Chomp());
         BaseMod.addCard(new Demolish());
         BaseMod.addCard(new Devour());
         BaseMod.addCard(new Feed_Glutton());
         BaseMod.addCard(new GnawingHunger());
         BaseMod.addCard(new KneeJerk());
         BaseMod.addCard(new Slam());
+        BaseMod.addCard(new Tantrum());
         //Skills
+        BaseMod.addCard(new Brace());
         BaseMod.addCard(new GuardStance());
         BaseMod.addCard(new PainMeditation());
         BaseMod.addCard(new Rest());
         BaseMod.addCard(new Salivate());
         BaseMod.addCard(new Scab());
+        BaseMod.addCard(new SelfFlagellate());
+        BaseMod.addCard(new Thrombosis());
         BaseMod.addCard(new Treat());
+        BaseMod.addCard(new Yearn());
 
         //Uncommon
         //Attacks
+        BaseMod.addCard(new BellySlam());
+        BaseMod.addCard(new BloodyKnuckle());
         BaseMod.addCard(new DecrepitStrike());
+        BaseMod.addCard(new DistilledAgony());
         BaseMod.addCard(new FeebleKick());
         BaseMod.addCard(new LashOut());
         BaseMod.addCard(new Mug());
         BaseMod.addCard(new Overreach());
+        BaseMod.addCard(new Profligacy());
         BaseMod.addCard(new Strain());
         BaseMod.addCard(new Throb());
+        BaseMod.addCard(new Torment());
         BaseMod.addCard(new Voracity());
         //Skills
+        BaseMod.addCard(new Chrysosphagy());
+        BaseMod.addCard(new Delusion());
         BaseMod.addCard(new Dispepsia());
         BaseMod.addCard(new GoldenArmor());
         BaseMod.addCard(new Migraine());
         BaseMod.addCard(new ObsessiveGreed());
         BaseMod.addCard(new ShareWeakness());
         BaseMod.addCard(new Toxicity());
+        BaseMod.addCard(new Tumor());
         //Powers
         BaseMod.addCard(new FeverVisions());
         BaseMod.addCard(new Misery());
@@ -145,13 +171,19 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
         BaseMod.addCard(new Avarice());
         BaseMod.addCard(new Excrescence());
         BaseMod.addCard(new FragileMight());
+        BaseMod.addCard(new Reminisce());
         BaseMod.addCard(new Retaliation());
         //Skills
         BaseMod.addCard(new Fast());
+        BaseMod.addCard(new Hemophilia());
         BaseMod.addCard(new Inversion());
+        BaseMod.addCard(new Malignancy());
+        BaseMod.addCard(new Treasure());
         //Powers
+        BaseMod.addCard(new Enfeeblement());
         BaseMod.addCard(new Megrim());
         BaseMod.addCard(new Nostalgia());
+        BaseMod.addCard(new StarvationMode());
     }
 
     @Override
@@ -165,8 +197,12 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     public void receiveEditKeywords() {
         BaseMod.addKeyword("Hunger Pang", new String[]{"hunger pang", "hunger_pang", "hunger pangs", "hunger_pangs"},
                 "Hunger Pangs are unplayable status cards that damage you and draw you new cards.");
-        BaseMod.addKeyword(new String[]{"echo"},
+        BaseMod.addKeyword(new String[]{"echo", "echoes"},
                 "Echoes are copies of cards with ethereal and exhaust.");
+        BaseMod.addKeyword(new String[]{"bleed"},
+                "Bleeding creatures lose HP at the start of their turn.");
+        BaseMod.addKeyword(new String[]{"starving"},
+                "At the start of each turn, add Hunger Pangs to your discard pile.");
     }
 
     @Override
@@ -184,5 +220,14 @@ public class GluttonMod implements EditCharactersSubscriber, EditRelicsSubscribe
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         // Bug fix for damageReceivedThisTurn not resetting properly
         GameActionManager.damageReceivedThisTurn = 0;
+    }
+
+    public static boolean hasDebuff(AbstractCreature c) {
+        for(AbstractPower power : c.powers){
+            if(power.type == AbstractPower.PowerType.DEBUFF){
+                return true;
+            }
+        }
+        return false;
     }
 }

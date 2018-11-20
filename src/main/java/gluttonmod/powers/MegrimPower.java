@@ -11,7 +11,7 @@ import gluttonmod.GluttonMod;
 public class MegrimPower extends AbstractGluttonPower {
     public static final String POWER_ID = "Megrim";
     public static final String NAME = "Megrim";
-    public static final String[] DESCRIPTIONS = new String[]{ "Whenever you draw a card, deal", "damage to a random enemy."};
+    public static final String[] DESCRIPTIONS = new String[]{ "Whenever you draw a card, deal #b", " damage to a random enemy."};
     public static final String IMG = "powers/megrim.png";
 
     public MegrimPower(AbstractCreature owner, int amount) {
@@ -27,7 +27,7 @@ public class MegrimPower extends AbstractGluttonPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + " "+amount+" " + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] +amount+ DESCRIPTIONS[1];
     }
 
     @Override

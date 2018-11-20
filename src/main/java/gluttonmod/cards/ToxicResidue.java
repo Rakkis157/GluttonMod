@@ -20,7 +20,7 @@ public class ToxicResidue extends AbstractGluttonCard
 
     private static final int COST = 1;
     private static final int MAGIC = 3;
-    private static final int UPGRADE_BONUS = 2;
+    private static final int UPGRADE_BONUS = 1;
 
     public ToxicResidue()
     {

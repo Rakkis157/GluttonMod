@@ -19,7 +19,7 @@ public class Treat extends AbstractGluttonCard
 
     private static final int COST = 1;
     private static final int BLOCK = 8;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int UPGRADE_BONUS = 2;
 
     public Treat()
@@ -29,6 +29,7 @@ public class Treat extends AbstractGluttonCard
         this.baseBlock = BLOCK;
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

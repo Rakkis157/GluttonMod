@@ -10,9 +10,11 @@ import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 
 public class ObsessiveGreed extends AbstractGluttonCard
 {
+    private static final int PRICE = 30;
+
     public static final String ID = "ObsessiveGreed";
     public static final String NAME = "Obsessive Greed";
-    public static final String DESCRIPTION = "Pay 30 Gold. NL Gain !M! Intangible.";
+    public static final String DESCRIPTION = "Pay " + PRICE + " Gold. NL Gain !M! Intangible.";
     public static final String CANT_PLAY = "I can't afford this card.";
     public static final String IMG_PATH = "cards/obsessivegreed.png";
 
@@ -23,7 +25,6 @@ public class ObsessiveGreed extends AbstractGluttonCard
     private static final int COST = 1;
     private static final int MAGIC = 1;
     private static final int UPGRADE_BONUS = 1;
-    private static final int PRICE = 30;
 
 
     public ObsessiveGreed()

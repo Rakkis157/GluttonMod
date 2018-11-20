@@ -9,12 +9,14 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import gluttonmod.GluttonMod;
 
 public class FeebleKick extends AbstractGluttonCard
 {
     public static final String ID = "FeebleKick";
     public static final String NAME = "Feeble Kick";
-    public static final String DESCRIPTION = "Deal !D! damage. If you are Frail, Vulnerable, or Weak, Gain [R] and draw 1 card.";
+    public static final String DESCRIPTION = "Deal !D! damage. If you have a debuff, Gain [R] and draw 1 card.";
     public static final String IMG_PATH = "cards/feeblekick.png";
 
     private static final CardType TYPE = CardType.ATTACK;
@@ -38,9 +40,7 @@ public class FeebleKick extends AbstractGluttonCard
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage,
                 this.damageTypeForTurn), AttackEffect.SLASH_VERTICAL));
-        if(p.hasPower("Frail")
-                || p.hasPower("Vulnerable")
-                || p.hasPower("Weakened")){
+        if(GluttonMod.hasDebuff(AbstractDungeon.player)){
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, CARD_DRAW));
             AbstractDungeon.actionManager.addToTop(new GainEnergyAction(ENERGY_GAIN));
         }

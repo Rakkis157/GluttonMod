@@ -1,5 +1,6 @@
 package gluttonmod.relics;
 
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -39,6 +40,7 @@ public class DoggyBag extends AbstractGluttonRelic {
         {
             flash();
             this.pulse = false;
+            AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.player.increaseMaxHp(10, true);
         }
     }

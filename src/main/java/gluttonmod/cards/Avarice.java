@@ -36,16 +36,38 @@ public class Avarice extends AbstractGluttonCard
         this.baseDamage = POWER;
     }
 
+    public void updateCostAlt(int amt) {
+        int tmpCost = this.cost;
+        int diff = this.cost - this.costForTurn;
+
+        tmpCost += amt;
+        if (tmpCost < 0) {
+            tmpCost = 0;
+        }
+        if (tmpCost != this.cost)
+        {
+            this.cost = tmpCost;
+            this.costForTurn = (this.cost - diff);
+            if (this.costForTurn < 0) {
+                this.costForTurn = 0;
+            }
+        }
+    }
+
     public void triggerWhenDrawn() {
-        int current = this.cost;
-        int desired = COST - (AbstractDungeon.player.gold / PRICE);
-        this.updateCost(desired - current);
+        if(!this.isCostModified && !this.isCostModifiedForTurn) {
+            int current = this.cost;
+            int desired = COST - (AbstractDungeon.player.gold / PRICE);
+            this.updateCostAlt(desired - current);
+        }
     }
 
     public void onChangeGold(int amount) {
-        int current = this.cost;
-        int desired = COST - (AbstractDungeon.player.gold / PRICE);
-        this.updateCost(desired - current);
+        if(!this.isCostModified && !this.isCostModifiedForTurn) {
+            int current = this.cost;
+            int desired = COST - (AbstractDungeon.player.gold / PRICE);
+            this.updateCostAlt(desired - current);
+        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -62,7 +84,7 @@ public class Avarice extends AbstractGluttonCard
     {
         AbstractCard tmp = new Avarice();
         if(AbstractDungeon.player != null){
-            tmp.updateCost(-(AbstractDungeon.player.gold / PRICE));
+            ((Avarice)tmp).updateCostAlt(-(AbstractDungeon.player.gold / PRICE));
         }
         return tmp;
     }

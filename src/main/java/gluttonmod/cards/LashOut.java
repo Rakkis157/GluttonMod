@@ -20,7 +20,7 @@ public class LashOut extends AbstractGluttonCard {
 
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     private static final int COST = 1;
     private static final int POWER = 12;
@@ -30,11 +30,16 @@ public class LashOut extends AbstractGluttonCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, RARITY, TARGET);
 
         this.baseDamage = POWER;
+        this.isMultiDamage = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, this.upgraded));
+        if (this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, true));
+        }
 
         AbstractDungeon.actionManager.addToBottom(
                 new SFXAction("ATTACK_HEAVY"));
@@ -46,7 +51,7 @@ public class LashOut extends AbstractGluttonCard {
 
     public AbstractCard makeCopy()
     {
-        return new Devour();
+        return new LashOut();
     }
 
     public void upgrade()
